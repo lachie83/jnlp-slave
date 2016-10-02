@@ -1,2 +1,9 @@
 # jnlp-slave
-Jenkins worker docker image for use with Jenkins Kubernetes plugin
+Jenkins worker for use with Jenkins Kubernetes plugin
+
+Currently contains the following:
+   * kubectl
+   * docker 1.10.3
+   * glang 1.6.3
+   * helm v2 alpha 4
+   * glide go package manager
