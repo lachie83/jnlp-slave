@@ -29,7 +29,7 @@ RUN gcloud components install kubectl
 RUN wget -O /usr/bin/docker --no-check-certificate https://get.docker.com/builds/Linux/x86_64/docker-1.10.3
 RUN chmod a+x /usr/bin/docker
 
-ENV HELM_VERSION v2.0.0-beta.2
+ENV HELM_VERSION v2.0.0-rc.1
 
 RUN curl -fsSL https://storage.googleapis.com/kubernetes-helm/helm-$HELM_VERSION-linux-amd64.tar.gz -o helm.tar.gz \
 	&& tar -C /usr/local/ -xzf helm.tar.gz \
