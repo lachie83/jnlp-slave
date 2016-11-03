@@ -18,5 +18,9 @@ docker_push:
 	docker push $(DOCKER_IMAGE):$(BUILD_NUMBER)
 	docker push $(DOCKER_IMAGE):latest
 
+.PHONY: docker_run
+test:
+	docker run $(DOCKER_IMAGE):$(BUILD_NUMBER) helm version --client
+
 .PHONY: all
 all: docker_build docker_push
