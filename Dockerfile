@@ -29,7 +29,11 @@ RUN gcloud components install kubectl
 RUN wget -O /usr/bin/docker --no-check-certificate https://get.docker.com/builds/Linux/x86_64/docker-1.10.3
 RUN chmod a+x /usr/bin/docker
 
-RUN curl -fsSL https://github.com/kubernetes/helm/releases/download/v2.0.0-alpha.4/helm-v2.0.0-alpha.4-linux-amd64.tar.gz -o helm.tar.gz && tar -C /usr/local/ -xzf helm.tar.gz 
+ENV HELM_VERSION v2.0.0-beta.2
+
+RUN curl -fsSL https://storage.googleapis.com/kubernetes-helm/helm-$HELM_VERSION-linux-amd64.tar.gz -o helm.tar.gz \
+	&& tar -C /usr/local/ -xzf helm.tar.gz \
+	&& cp /usr/local/linux-amd64/helm /usr/local/bin/
 
 ENV GOLANG_VERSION 1.6.3
 ENV GOLANG_DOWNLOAD_URL https://golang.org/dl/go$GOLANG_VERSION.linux-amd64.tar.gz
